@@ -71,6 +71,7 @@ The `Install name` column is the exact value you pass to `--skill`.
 | **gpt-tasteskill** | `gpt-taste` | Stricter variant for GPT/Codex: higher layout variance, stronger GSAP direction, aggressive anti-slop. |
 | **image-to-code-skill** | `image-to-code` | Image-first pipeline: generate site references, analyze them, then implement the frontend to match. |
 | **redesign-skill** | `redesign-existing-projects` | Existing projects: audit the UI first, then fix layout, spacing, hierarchy, styling. |
+| **sorted-local-site-refresh** | `sorted-local-site-refresh` | Sorted-specific local business website refresh workflow. Turns mockups, screenshots, or existing small-business sites into clean standard or premium builds with practical conversion structure, strong aesthetics, smooth motion, and local trust signals. |
 | **soft-skill** | `high-end-visual-design` | Polished, calm, expensive UI with softer contrast, whitespace, premium fonts, spring motion. |
 | **output-skill** | `full-output-enforcement` | When the model ships half-finished work: full output, no placeholder comments. |
 | **minimalist-skill** | `minimalist-ui` | Editorial product UI (Notion/Linear vibes), restrained palette, crisp structure. |
@@ -86,87 +87,3 @@ These produce design images only (no code). Use with ChatGPT Images, Codex image
 | **imagegen-frontend-web** | `imagegen-frontend-web` | Website comps: hero, landing, multi-section with strong typography, spacing, anti-slop art direction. |
 | **imagegen-frontend-mobile** | `imagegen-frontend-mobile` | Mobile screens and flows: iOS/Android/cross-platform, mockups, readable type, coherent sets. |
 | **brandkit** | `brandkit` | Brand-kit boards: logo directions, palettes, type, identity applications across categories. |
-
-### Which one should I use?
-
-- Start with **taste-skill** for the safest general default.  
-- Use **gpt-taste** when you want the stricter GPT/Codex-oriented rules and motion/layout enforcement.  
-- Use **image-to-code-skill** for image → analyze → code website workflows.  
-- Use **redesign-skill** to improve an existing codebase instead of greenfield styling.  
-- Add **soft-skill**, **minimalist-skill**, or **brutalist-skill** when the visual direction is already chosen.  
-- Add **output-skill** if the agent keeps truncating output.  
-- Use **imagegen-frontend-web**, **imagegen-frontend-mobile**, or **brandkit** when the deliverable is **images** (comps, flows, identity boards), then pass results to your coding agent.
-
-### Image-first tip
-
-For **image-to-code-skill**, state the pipeline in the prompt, e.g.: `follow the skill: generate images, then analyze, then code`.
-
-### ChatGPT Images and Codex
-
-Attach or paste **`imagegen-frontend-web`**, **`imagegen-frontend-mobile`**, or **`brandkit`** and ask for the frames you need, then feed the renders to Codex, Cursor, or Claude Code. Use **image-to-code-skill** when you want one workflow that both generates references and implements the site in code.
-
-## Settings (taste-skill only)
-
-Numbers at the top of the file are 1-10 dials:
-
-- **DESIGN_VARIANCE**: Layout experimentation (lower: centered/clean · higher: asymmetric/modern).
-- **MOTION_INTENSITY**: Animation depth (lower: hover · higher: scroll/magnetic).
-- **VISUAL_DENSITY**: Information per viewport (lower: spacious · higher: dense dashboards).
-
-## Examples
-
-Created with taste-skill:
-
-<p>
-  <img src="examples/floria-top.webp" width="400" />
-  <img src="examples/floria-bottom.webp" width="400" />
-</p>
-
-## Support the project
-
-If Taste Skill helps you, consider sponsoring:
-
-[Sponsor on GitHub](https://github.com/sponsors/Leonxlnx)
-
-### Current Sponsors
-
-<a href="https://github.com/robinebers"><img src="https://github.com/robinebers.png" width="40" height="40" style="border-radius:50%" alt="robinebers" title="robinebers" /></a>
-<a href="https://github.com/JKc66"><img src="https://github.com/JKc66.png" width="40" height="40" style="border-radius:50%" alt="JKc66" title="JKc66" /></a>
-<a href="https://github.com/u2393696078-rgb"><img src="https://github.com/u2393696078-rgb.png" width="40" height="40" style="border-radius:50%" alt="u2393696078-rgb" title="u2393696078-rgb" /></a>
-<a href="https://github.com/a-human-created-this"><img src="https://github.com/a-human-created-this.png" width="40" height="40" style="border-radius:50%" alt="a-human-created-this" title="a-human-created-this" /></a>
-<a href="https://github.com/AtharvaJaiswal005"><img src="https://github.com/AtharvaJaiswal005.png" width="40" height="40" style="border-radius:50%" alt="AtharvaJaiswal005" title="AtharvaJaiswal005" /></a>
-<a href="https://github.com/ghughes7"><img src="https://github.com/ghughes7.png" width="40" height="40" style="border-radius:50%" alt="ghughes7" title="ghughes7" /></a>
-<a href="https://github.com/mccun934"><img src="https://github.com/mccun934.png" width="40" height="40" style="border-radius:50%" alt="mccun934" title="mccun934" /></a>
-<a href="https://github.com/navanchauhan"><img src="https://github.com/navanchauhan.png" width="40" height="40" style="border-radius:50%" alt="navanchauhan" title="navanchauhan" /></a>
-
-<p align="center">
- <a href="https://www.star-history.com/leonxlnx/taste-skill">
-  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/badge?repo=Leonxlnx/taste-skill&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/badge?repo=Leonxlnx/taste-skill" />
-   <img alt="Star History Rank" src="https://api.star-history.com/badge?repo=Leonxlnx/taste-skill" />
-  </picture>
- </a>
-</p>
-
-## Research
-
-Background writing that shaped these skills lives in [`research/`](research/).
-
-## Common Questions
-
-**How is this different from other AI design skills?**  
-Multiple specialized variants, adjustable dials in key skills, anti-repetition rules informed by dedicated research. All are framework agnostic across major coding agents.
-
-**Does it work with React, Vue, Svelte?**  
-Yes. Rules target design intent, not a single framework API.
-
-**What is SKILL.md?**  
-A portable instruction file agents can load automatically; install via `npx skills add` or by copying into a repo or conversation.
-
-**Do image-generation skills install with `npx skills add`?**  
-Yes. They live under `skills/` alongside the code skills so the same CLI discovers them.
-
-## License
-
-[MIT License](LICENSE) · Copyright (c) 2026 Leonxlnx
